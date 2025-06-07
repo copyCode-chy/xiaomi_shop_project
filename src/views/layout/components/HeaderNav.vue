@@ -2,11 +2,31 @@
   <div class="banner">
     <div class="head-nav container">
       <div class="head-left">
-        <div class="item-left" v-for="item in arrLeft"><a href="#">{{ item }}</a><span>|</span></div>
+        <template v-for="item in arrLeft">
+          <div class="item-left"><a href="#">{{ item }}</a></div>
+          <span>|</span>
+        </template>
       </div>
       <div class="head-right">
-        <div class="item-right" v-for="item in arrRight"><a href="#">{{ item }}</a><span>|</span></div>
-        <div class="cart"><a href="#">购物车</a></div>
+        <template v-for="item in arrRight">
+          <div class="item-right">
+            <a href="#">{{ item }}</a>
+          </div>
+          <span>|</span>
+        </template>
+
+        <div class="cart">
+          <el-popover title="购物车" placement="bottom-end" trigger="hover" :width="200" content="xxxx" :show-arrow="false"
+            :offset="0">
+            <template #reference>
+              <a href="#">
+                <em class="iconfont icon-xiazai1"></em>
+                购物车(2)
+              </a>
+            </template>
+          </el-popover>
+
+        </div>
       </div>
     </div>
   </div>
@@ -26,18 +46,46 @@ const arrRight = ['登录', '注册', '消息通知']
     height: 40px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    line-height: 40px;
 
     .head-left {
       display: flex;
 
-      .item-left:last-child span {
-        opacity: 0;
+      & span:last-of-type {
+        display: none;
       }
     }
 
     .head-right {
       display: flex;
+
+      .cart {
+        background-color: rgb(255, 103, 0);
+        margin-left: 15px;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 120px;
+          color: white;
+
+          &:hover {
+            color: rgb(255, 103, 0);
+            background-color: white;
+          }
+
+          em {
+            margin-right: 5px;
+            font-size: 20px;
+            vertical-align: bottom;
+          }
+        }
+      }
+
+      & span:last-of-type {
+        display: none;
+      }
     }
 
     a {
@@ -53,6 +101,7 @@ const arrRight = ['登录', '注册', '消息通知']
     span {
       margin: 0 0.3em;
       color: #424242;
+      font-size: 12px;
     }
   }
 }
