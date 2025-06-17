@@ -1,14 +1,15 @@
+<!-- 顶部导航条组件 -->
 <template>
   <div class="banner">
     <div class="head-nav container">
       <div class="head-left">
-        <template v-for="item in arrLeft">
+        <template v-for="item in arrLeft" :key="item">
           <div class="item-left"><a href="#">{{ item }}</a></div>
           <span>|</span>
         </template>
       </div>
       <div class="head-right">
-        <template v-for="item in arrRight">
+        <template v-for="item in arrRight" :key="item">
           <div class="item-right">
             <a href="#">{{ item }}</a>
           </div>
@@ -16,8 +17,10 @@
         </template>
 
         <div class="cart">
+          <!-- trigger="hover"触发方式hover :show-arrow="false"是否显示 Tooltip 箭头 :offset="0"offset 控制 reference 和 popper 之间的距离，默认是 12 像素。设置为 0 就是“紧贴”。-->
           <el-popover title="购物车" placement="bottom-end" trigger="hover" :width="200" content="xxxx" :show-arrow="false"
             :offset="0">
+            <!-- #reference插槽表示触发 Popover 显示的 HTML 元素 -->
             <template #reference>
               <a href="#">
                 <em class="iconfont icon-xiazai1"></em>

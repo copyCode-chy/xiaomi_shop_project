@@ -1,0 +1,59 @@
+/* 全局 box-sizing 统一处理 */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* 基础标签初始化 */
+body,
+div,
+dl,
+dt,
+dd,
+ol,
+li,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+code,
+form,
+fieldset,
+input,
+textarea,
+label,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, sans-serif;
+}
+
+/* 列表取消样式 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* a 标签样式清除 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 容器样式 */
+.container {
+  width: 1226px;
+  max-width: 100%;
+  margin: 0 auto;
+}
