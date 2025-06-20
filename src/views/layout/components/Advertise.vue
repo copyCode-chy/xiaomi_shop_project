@@ -17,7 +17,7 @@ import ad from '@/assets/images/ad.jpg'
   position: relative;
 
   img {
-    width: 1860px;
+    width: 1841px;
     height: 120px;
     // 图片居中
     position: absolute;
