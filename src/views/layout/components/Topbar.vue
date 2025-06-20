@@ -3,9 +3,23 @@
   <div class="banner">
     <div class="head-nav container">
       <div class="head-left">
-        <template v-for="item in arrLeft" :key="item">
-          <div class="item-left"><a href="#">{{ item }}</a></div>
-          <span>|</span>
+        <template v-for="(item, index) in arrLeft" :key="item">
+          <div class="item-container" @mouseenter="hoverItem = item" @mouseleave="hoverItem = ''">
+            <div class="item-left">
+              <a href="#">{{ item }}</a>
+            </div>
+
+            <div v-if="item === '下载app' && hoverItem === '下载app'">
+              <div class="download">
+                <img src="../../../assets/images/download.png" alt="小米商城APP">
+                <p>小米商城APP</p>
+              </div>
+              <div class="stri"></div>
+            </div>
+
+            <!-- 非最后一项才显示 | -->
+            <span v-if="index !== arrLeft.length - 1">|</span>
+          </div>
         </template>
       </div>
       <div class="head-right">
@@ -37,13 +51,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 const arrLeft = ['小米官网', '小米商城', '小米澎湃OS', '小米汽车', '云服务', 'ioT', '有品', '小爱开放平台', '资质证照', '协议规则', '下载app', 'Select Location']
 const arrRight = ['登录', '注册', '消息通知']
+const hoverItem = ref('');
 </script>
 
 <style lang="scss" scoped>
 .banner {
   background-color: #333;
+  text-align: center;
 
   .head-nav {
     height: 40px;
@@ -54,8 +71,47 @@ const arrRight = ['登录', '注册', '消息通知']
     .head-left {
       display: flex;
 
-      & span:last-of-type {
-        display: none;
+      .item-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .download {
+          width: 124px;
+          height: 144px;
+          background-color: #fff;
+          box-shadow: 0 1px 5px #aaa;
+          position: absolute;
+          top: 40px;
+          left: 50%;
+          margin-left: -62px;
+          overflow: hidden;
+          z-index: 1;
+
+          img {
+            width: 90px;
+            margin: 18px auto 0;
+          }
+
+          p {
+            color: #333;
+            font-size: 12px;
+            line-height: 12px;
+          }
+        }
+
+        .stri {
+          width: 0;
+          height: 0;
+          border-bottom: 8px solid white;
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          // margin-left: -8px;
+        }
       }
     }
 
@@ -91,6 +147,12 @@ const arrRight = ['登录', '注册', '消息通知']
       }
     }
 
+    span {
+      margin: 0 0.3em;
+      color: #888;
+      font-size: 12px;
+    }
+
     a {
       text-decoration: none;
       color: #b0b0b0;
@@ -99,12 +161,6 @@ const arrRight = ['登录', '注册', '消息通知']
       &:hover {
         color: white;
       }
-    }
-
-    span {
-      margin: 0 0.3em;
-      color: #424242;
-      font-size: 12px;
     }
   }
 }

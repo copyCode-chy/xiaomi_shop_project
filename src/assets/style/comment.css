@@ -39,6 +39,10 @@ button {
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", 微软雅黑, sans-serif;
 }
 
+body {
+  background-color: rgb(245, 245, 245);
+}
+
 /* 列表取消样式 */
 ul,
 ol {
