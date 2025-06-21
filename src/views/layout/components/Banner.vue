@@ -29,6 +29,25 @@
         </div>
       </div>
 
+      <!-- banner区域的广告 -->
+      <div class="ad">
+        <!-- 左侧font图标 -->
+        <div class="ad-aside">
+          <ul>
+            <li v-for="item in 6" :key="item">
+              <a href="#">
+                <i class="iconfont icon-wuyefei" style="font-size: 24px;"></i>
+                <p>话费充值</p>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <!-- 右侧图片 -->
+        <div class="ad-img" v-for="item in adImgurl" :key="item">
+          <img :src="item" alt="广告">
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -38,11 +57,14 @@ import { ref } from 'vue';
 import banner1 from '@/assets/images/banner1.webp'
 import banner2 from '@/assets/images/banner2.webp'
 import banner3 from '@/assets/images/banner4.webp'
-const showLayer = ref(false)
+import bannerAd1 from '@/assets/images/banner-ad1.png'
+import bannerAd2 from '@/assets/images/banner-ad2.png'
+import bannerAd3 from '@/assets/images/banner-ad3.png'
 const currentIndex = ref(0)
 const sildeList = ['手机', '电视', '家电', '笔记本 平板 显示器', '出行 穿戴', '耳机 音箱', '健康 儿童', '生活 箱包', '智能 路由器', '电源 配件']
 const number = [7, 11, 20, 14, 9, 8, 16, 19, 6, 22]
 const imgUrl = [banner1, banner2, banner3]
+const adImgurl = [bannerAd1, bannerAd2, bannerAd3]
 </script>
 
 <style lang="scss" scoped>
@@ -124,6 +146,59 @@ const imgUrl = [banner1, banner2, banner3]
         }
       }
     }
+
+    .ad {
+      display: flex;
+      margin-top: 15px;
+      justify-content: space-between;
+
+      .ad-aside {
+        width: 234px;
+        height: 170px;
+        padding: 3px;
+        background-color: rgb(95, 87, 80, 0.9);
+        color: #fff;
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+
+          li {
+            width: 76px;
+            height: 82px;
+            padding: 3px;
+            opacity: 0.7;
+
+            &:hover {
+              opacity: 1;
+            }
+
+            a {
+              padding-top: 18px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+
+      .ad-img {
+        width: 316px;
+        height: 170px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+
+      }
+    }
   }
 }
 
@@ -131,17 +206,19 @@ const imgUrl = [banner1, banner2, banner3]
 ::v-deep(.el-carousel__arrow--left) {
   left: 234px !important; // 默认是 0，向右偏移一点
 }
+
 ::v-deep(.el-carousel__arrow--right) {
-  right:0px;
+  right: 0px;
 }
+
 ::v-deep(.el-carousel__arrow) {
   width: 41px;
   height: 69px;
-  border-radius:0;
+  border-radius: 0;
   font-size: 36px;
 }
 
 ::v-deep(.el-carousel__arrow):hover {
-  background-color:rgb(127,127,127,0.5)
+  background-color: rgb(127, 127, 127, 0.5)
 }
 </style>
