@@ -158,6 +158,7 @@ const adImgurl = [bannerAd1, bannerAd2, bannerAd3]
         padding: 3px;
         background-color: rgb(95, 87, 80, 0.9);
         color: #fff;
+        margin-bottom: 28px;
 
         ul {
           display: flex;
