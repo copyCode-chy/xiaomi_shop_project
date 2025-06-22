@@ -9,11 +9,11 @@
       </div>
     </div>
     <div class="img-list">
-      <div class="img-left-content">
+      <div class="img-left-content item-hover">
         <slot name="imgleft"></slot>
       </div>
       <div class="img-right-content">
-        <div class="img-item" v-for="item in 8" :key="item">
+        <div class="img-item item-hover" v-for="item in 8" :key="item">
           <a href="#">
             <slot name="imgright"></slot>
             <h3>
@@ -97,6 +97,15 @@ defineProps({
         }
       }
     }
+  }
+}
+
+.item-hover {
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
 }
 </style>

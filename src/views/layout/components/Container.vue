@@ -34,7 +34,9 @@
     <template #title>笔记本 | 平板</template>
     <template #more>更多</template>
     <template #imgleft>
-      <img :src="imgList[2]" alt="Container Image Left" />
+      <div class="item-hover">
+        <img :src="imgList[2]" alt="Container Image Left" />
+      </div>
     </template>
     <template #imgright>
       <img :src="imgList[3]" alt="Container Image Right" />

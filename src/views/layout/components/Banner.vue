@@ -44,8 +44,10 @@
 
         </div>
         <!-- 右侧图片 -->
-        <div class="ad-img" v-for="item in adImgurl" :key="item">
-          <img :src="item" alt="广告">
+        <div class="ad-img item-hover" v-for="item in adImgurl" :key="item">
+          <a href="#">
+            <img :src="item" alt="广告">
+          </a>
         </div>
       </div>
     </div>
@@ -200,6 +202,15 @@ const adImgurl = [bannerAd1, bannerAd2, bannerAd3]
 
       }
     }
+  }
+}
+
+.item-hover {
+  transition: all 0.2s linear;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   }
 }
 
