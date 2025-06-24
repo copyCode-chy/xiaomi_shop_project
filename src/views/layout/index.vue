@@ -9,6 +9,8 @@
   <Banner></Banner>
   <!-- container主要内容 -->
   <Container></Container>
+  <!-- 网页底部内容 -->
+  <SiteFooter></SiteFooter>
 </template>
 
 <script setup>
@@ -17,6 +19,7 @@ import Topbar from '@/views/layout/components/Topbar.vue'
 import Header from '@/views/layout/components/Header.vue';
 import Banner from './components/Banner.vue';
 import Container from './components/Container.vue';
+import SiteFooter from '@/views/layout/components/Site-Footer.vue';
 </script>
 
 <style lang="scss" scoped></style>
